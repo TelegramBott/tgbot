@@ -1,4 +1,5 @@
 import telebot
+
 from telebot import types
 
 # Имя бота @victor345_bot
@@ -36,5 +37,6 @@ def func(message):
     else:
         bot.send_message(message.chat.id, text="К сожалению, я тебя не понимаю")
 
-
+def sendReminder()
+    
 bot.polling(none_stop=True)
