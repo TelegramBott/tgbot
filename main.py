@@ -12,7 +12,8 @@ def start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
     btn1 = types.KeyboardButton("Привет")
     btn2 = types.KeyboardButton("Пока")
-    markup.add(btn1, btn2)
+    btn3 = types.KeyboardButton("Предметы")
+    markup.add(btn1, btn2, btn3)
     bot.send_message(message.chat.id,
                      text="Привет, {0.first_name}! Я тестовый бот.".format(
                          message.from_user), reply_markup=markup)
@@ -28,6 +29,10 @@ def func(message):
         bot.send_message(message.chat.id, "Меня зовут Victor")
     elif message.text == "Что ты умеешь?":
         bot.send_message(message.chat.id, text="Пока ничего(")
+    elif message.text == "Предметы":
+        button1 = types.KeyboardButton("История")
+        button2 = types.KeyboardButton("Орг")
+        markup.add(button1, button2)
     else:
         bot.send_message(message.chat.id, text="К сожалению, я тебя не понимаю")
 
