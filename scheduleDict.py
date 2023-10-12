@@ -1,5 +1,6 @@
 from datetime import date, timedelta
 from timeFromName import HorLW
+import calendar
 
 highweek = {'Monday': ['История (лекция-120) (8:00-9:35)\n',
                        'ОРГ (лекция-120) (9:50-11:25)\n',
@@ -53,7 +54,7 @@ def schedule(DoW, HorL):
     return subjects_str
 
 def todaySc():
-    return schedule(date.today().strftime(), HorLW(date.today()))
+    return schedule(calendar.day_name[(date.today() + timedelta(days=1)).weekday()], HorLW(date.today()))
 
 def tomorSc():
-    return schedule((date.today()+timedelta(1)).strftime(), HorLW((date.today()+timedelta(1))))
+    return schedule((calendar.day_name[(date.today() + timedelta(days=1)).weekday()]), HorLW((date.today()+timedelta(1))))
